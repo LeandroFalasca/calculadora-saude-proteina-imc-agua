@@ -1,36 +1,58 @@
-# Leitor de músicas em CSV (Python)
+# Calculadora de Proteína, IMC e Água diária
 
-Projeto desenvolvido durante o bootcamp de Análise de Dados (Generation Brasil), com o objetivo de praticar leitura de arquivos CSV usando Python.
+Projeto em Python para calcular:
 
-## 🎯 Objetivo
+- quantidade de proteína diária recomendada
+- IMC (Índice de Massa Corporal)
+- classificação do IMC
+- quantidade de água diária recomendada
 
-Ler um arquivo `musicas.csv` contendo informações de músicas (título, artista, ano, gênero e duração) e exibir cada registro formatado no terminal.
+## 🎯 Funcionalidades
+
+1. **Calcular Proteína diária (g/dia)**  
+   - Usuário escolhe o objetivo:
+     - perder peso
+     - manter peso
+     - ganhar peso
+   - O sistema multiplica o peso por um fator (ex: 2g/kg) conforme o objetivo.
+
+2. **Calcular IMC**
+   - Fórmula: `IMC = peso / (altura²)`
+   - Retorna também a classificação:
+     - abaixo do peso
+     - peso normal
+     - sobrepeso
+     - obesidade
+
+3. **Calcular quantidade de água diária**
+   - Fórmula: `peso * 35` (ml por kg)
+   - Exibe o total recomendado em ml (ou litros, dependendo da versão)
 
 ## 🛠 Tecnologias utilizadas
 
 - Python 3
-- Módulo padrão `csv`
 - VS Code
 
 ## 📁 Estrutura do projeto
 
-- `funcoes.py` → contém a função `ler_musicas()`, responsável por:
-  - abrir o arquivo CSV
-  - pular o cabeçalho com `next()`
-  - ler linha a linha com `csv.reader`
-  - imprimir as informações de forma organizada
+- `funcoes.py`
+  - `menu()` → exibe o menu principal
+  - `menu_objetivo()` → exibe o menu de objetivos
+  - `calc_proteinas(peso, objetivo)`
+  - `calc_imc(peso, altura)`
+  - `imc(valor_imc)` → retorna a classificação
+  - `calc_agua(peso)` → calcula água diária recomendada
 
-- `main.py` → arquivo principal que:
-  - importa a função `ler_musicas`  
-  - executa a leitura do arquivo ao rodar o script
-
-- `musicas.csv` → base de dados com as músicas utilizadas no exercício.
+- `main.py`
+  - Loop principal com `while True`
+  - Exibe o menu
+  - Lê a opção do usuário
+  - Chama as funções corretas
+  - Permite sair do sistema digitando uma opção fora do menu
 
 ## ▶ Como executar
 
-1. Certifique-se de que todos os arquivos estejam na mesma pasta.
-2. No terminal, navegue até a pasta do projeto.
-3. Execute:
+No terminal:
 
 ```bash
 python main.py
